@@ -209,7 +209,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="357" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YyA-Hq-Yeu">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="357" id="gye-sR-6MN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="357" id="gye-sR-6MN" customClass="PostCell" customModule="Social_Legacy_2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="357"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gye-sR-6MN" id="pow-wM-02q">
@@ -233,7 +233,7 @@
                                                                             <color key="textColor" red="0.23529411764705882" green="0.4392156862745098" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-heart" translatesAutoresizingMaskIntoConstraints="NO" id="c8y-he-sro" customClass="CircleView" customModule="Social_Legacy_2" customModuleProvider="target">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-heart" translatesAutoresizingMaskIntoConstraints="NO" id="c8y-he-sro">
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="60" id="Ibx-1E-WPw"/>
                                                                                 <constraint firstAttribute="width" constant="60" id="fXd-Ys-5Gs"/>
@@ -244,6 +244,9 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="FjC-aE-xnz"/>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DfU-0M-TF3">
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="OI3-3L-ztc"/>
+                                                                    </constraints>
                                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -283,11 +286,18 @@
                                                 <constraint firstItem="V7W-lf-Zxx" firstAttribute="leading" secondItem="pow-wM-02q" secondAttribute="leading" constant="16" id="zsm-7V-Yct"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caption" destination="DfU-0M-TF3" id="TSv-u5-4Kw"/>
+                                            <outlet property="likeLbl" destination="4KP-tQ-AaI" id="7VA-tD-DDp"/>
+                                            <outlet property="postImg" destination="FjC-aE-xnz" id="vLc-tw-sgs"/>
+                                            <outlet property="profileImg" destination="oTh-Ny-BT1" id="IwC-Mi-IIb"/>
+                                            <outlet property="usernameLbl" destination="OmQ-CM-bme" id="Ti4-Ua-dNA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YyA-Hq-Yeu" firstAttribute="leading" secondItem="zZd-sQ-wjz" secondAttribute="leading" id="1GC-Sc-76n"/>
                             <constraint firstAttribute="trailing" secondItem="YyA-Hq-Yeu" secondAttribute="trailing" id="4Hh-CS-p8T"/>
@@ -304,6 +314,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="YyA-Hq-Yeu" id="RMB-x3-jjh"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="ybR-jb-iYz"/>
                     </connections>
                 </viewController>
